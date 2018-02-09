@@ -1,0 +1,15 @@
+{
+  "name": "cdc-state-mgmt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "Naman",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2"
+  }
+}
