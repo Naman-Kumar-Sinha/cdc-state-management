@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const cookieParser = require('cookie-parser')
+const path = require('path')
 
 /**
  * Check API resource and skip first middleware for specific resource
@@ -43,6 +44,8 @@ const genCors = (req, res, next) => {
 }
 
 app.use('*', genCors)
+
+app.use('/docs', express.static(path.join(__dirname, 'docs')))
 
 app.use(cookieParser())
 
