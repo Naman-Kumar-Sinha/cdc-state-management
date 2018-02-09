@@ -25,7 +25,10 @@ app.all('*', checkResource)
  * @param {*} next Method executes next middleware
  */
 const specificCors = (req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://www.w3schools.com")
+    const allowedOrigins = ['https://tryit.w3schools.com', "https://www.w3schools.com", "https://naman-kumar-sinha.github.io", "https://cdc-state-management.herokuapp.com"]
+    const defaultAllowedOrigin = "https://naman-kumar-sinha.github.io"
+    let origin = allowedOrigins.indexOf(req.header('origin').toLowerCase()) > -1 ? req.headers.origin : defaultAllowedOrigin
+    res.header("Access-Control-Allow-Origin", origin)
     res.header("Access-Control-Allow-Credentials", "true")
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
     next()
