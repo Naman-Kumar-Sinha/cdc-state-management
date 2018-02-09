@@ -3,12 +3,10 @@ const app = express()
 const cookieParser = require('cookie-parser')
 
 /**
- * 
- * Checks for specific API resource (route) and skips the first middleware
- * @param {any} req 
- * @param {any} res 
- * @param {any} next 
- * @returns 
+ * Check API resource and skip first middleware for specific resource
+ * @param {*} req HTTP Request object
+ * @param {*} res HTTP Response object
+ * @param {*} next Method executes next middleware
  */
 const checkResource = (req, res, next) => {
     if (req.path === '/api/cookies') {
@@ -18,12 +16,12 @@ const checkResource = (req, res, next) => {
 }
 
 app.all('*', checkResource)
+
 /**
- * 
- * Specific CORS
- * @param {any} req 
- * @param {any} res 
- * @param {any} next 
+ * Sets Specific CORS Reponse headers
+ * @param {*} req HTTP Request object
+ * @param {*} res HTTP Response object
+ * @param {*} next Method executes next middleware
  */
 const specificCors = (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "https://www.w3schools.com")
@@ -31,12 +29,12 @@ const specificCors = (req, res, next) => {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
     next()
 }
+
 /**
- * 
- * General CORS
- * @param {any} req 
- * @param {any} res 
- * @param {any} next 
+ * Sets General CORS Response headers
+ * @param {*} req HTTP Request object
+ * @param {*} res HTTP Response object
+ * @param {*} next Method executes next middleware
  */
 const genCors = (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
