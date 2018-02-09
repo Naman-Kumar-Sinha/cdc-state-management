@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node ."
   },
-  "author": "Naman",
-  "license": "ISC",
+  "author": "Naman Kumar Sinha",
+  "license": "MIT",
   "dependencies": {
     "cookie-parser": "^1.4.3",
     "express": "^4.16.2"
